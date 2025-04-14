@@ -16,6 +16,11 @@ docker compose run --rm web bin/rails c
 http://localhost:3000/rails/info/routes
 ```
 
+* RSpecの実行
+```bash
+docker compose run --rm web rspec
+docker compose run --rm web rspec spec/requests/tasks_controller_spec.rb
+```
 
 
 ### CRUD機能実装
