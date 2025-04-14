@@ -1,5 +1,5 @@
 # .github/workflows/rspec.yml
-name: standardrb
+name: rspec
 on:
   push:
     branches-ignore: [main]
