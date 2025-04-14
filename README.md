@@ -15,3 +15,8 @@ docker compose run --rm web bin/rails c
 ```
 http://localhost:3000/rails/info/routes
 ```
+
+
+
+### CRUD機能実装
+ref: https://qiita.com/shizen-shin/items/6cde2ccde5495ec16a6c
