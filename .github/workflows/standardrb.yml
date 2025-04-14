@@ -1,5 +1,5 @@
-# .github/workflows/format.yml
-name: Format
+# .github/workflows/standardrb.yml
+name: standardrb
 on:
   push:
     branches-ignore: [main]
