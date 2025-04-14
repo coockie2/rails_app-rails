@@ -1,5 +1,5 @@
 # spec/requests/tasks_controller_spec.rb
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Tasks", type: :request do
   context "GET /tasks" do

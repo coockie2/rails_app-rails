@@ -16,6 +16,12 @@ docker compose run --rm web bin/rails c
 http://localhost:3000/rails/info/routes
 ```
 
+* standardrbの実行
+```bash
+docker compose run --rm web rake standard:fix
+docker compose run --rm web rake standard:fix_unsafely
+```
+
 * RSpecの実行
 ```bash
 docker compose run --rm web rspec
