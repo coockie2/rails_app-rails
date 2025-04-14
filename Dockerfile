@@ -8,7 +8,7 @@ ENV LANG=C.UTF-8 \
     TZ=Asia/Tokyo \
     RUBY_YJIT_ENABLE=1 \
     RAILS_ENV=development \
-    APP_ROOT_PATH=/web1
+    APP_ROOT_PATH=/app
 
 # 必要なパッケージをインストール
 RUN apt-get update && apt-get install -y \
