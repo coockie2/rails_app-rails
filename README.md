@@ -30,8 +30,8 @@ docker compose run --rm web rspec spec/requests/tasks_controller_spec.rb
 
 
 * CRUD機能実装
-ref: https://qiita.com/shizen-shin/items/6cde2ccde5495ec16a6c
+  * ref: https://qiita.com/shizen-shin/items/6cde2ccde5495ec16a6c
 
 * Github CI Rspec
   * RailsプロジェクトにGitHub Actionsを導入する方法（Rspec, Rubocop）
-ref: https://qiita.com/JZ8xNeXY/items/fef7efb5eb9495b62faf
+    * ref: https://qiita.com/JZ8xNeXY/items/fef7efb5eb9495b62faf
