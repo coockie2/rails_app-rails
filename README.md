@@ -13,6 +13,7 @@ docker compose run --rm web bin/rails c
 
 * アセットファイルのコンパイル
 ```bash
+docker compose run --rm web bin/rails assets:clobber
 docker compose run --rm web bin/rails assets:precompile
 ```
 
