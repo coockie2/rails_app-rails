@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", data_turbo_track: "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -14,6 +14,11 @@
       <div class=".navbar-brand">Taskleaf</div>
     </div>
     <div class="container">
+      <% if flash.notice.present? %>
+        <div class="alert alert-success">
+          <%= flash.notice %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
