@@ -9,6 +9,9 @@ gem "puma"
 
 gem "importmap-rails"
 
+# for user password
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+
 # Run against this stable release
 group :development, :test do
   gem "rspec-rails", "~> 8.0.1"
