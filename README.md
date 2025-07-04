@@ -11,6 +11,11 @@ docker compose run --rm web bin/rails db:drop db:create db:migrate
 docker compose run --rm web bin/rails c
 ```
 
+* アセットファイルのコンパイル
+```bash
+docker compose run --rm web bin/rails assets:precompile
+```
+
 * ルーティング確認
 ```
 http://localhost:3000/rails/info/routes
