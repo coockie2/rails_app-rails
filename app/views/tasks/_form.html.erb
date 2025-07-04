@@ -1,18 +1,20 @@
+<% if @task.errors.present? %>
+  <ul id="error_explanation">
+    <% @task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @task do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", id: "task_name" %>
-    <% @task.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
 
   <div class="form-group">
     <%= f.label :description %><br>
     <%= f.text_area :description, row: 5, class: "form-control", id: "task_description" %>
-    <% @task.errors.full_messages_for(:description).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
 
   <%= f.submit nil, class: 'btn btn-primary' %>
