@@ -8,6 +8,9 @@ gem "mysql2", ">= 0.5.5"
 gem "puma"
 
 gem "importmap-rails"
+gem "sprockets-rails"
+gem "dartsass-sprockets"
+gem "bootstrap", "~> 5.3.3" # Bootstrapが必要なら
 
 # for user password
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
