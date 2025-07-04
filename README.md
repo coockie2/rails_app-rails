@@ -22,6 +22,11 @@ docker compose run --rm web bin/rails assets:precompile
 http://localhost:3000/rails/info/routes
 ```
 
+* マイグレーション実行
+```bash
+docker compose run --rm web bin/rails db:migrate
+```
+
 * standardrbの実行
 ```bash
 docker compose run --rm web rake standard:fix
