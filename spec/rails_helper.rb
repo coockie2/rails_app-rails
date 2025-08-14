@@ -67,4 +67,9 @@ RSpec.configure do |config|
 
   # FactoryBotの利用をON
   config.include FactoryBot::Syntax::Methods
+
+  # Request Spec の場合、本番の CSRF チェックを無効化
+  config.before(:each, type: :request) do
+    allow_any_instance_of(ActionController::Base).to receive(:verify_authenticity_token).and_return(true)
+  end
 end
