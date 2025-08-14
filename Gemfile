@@ -13,7 +13,7 @@ gem "dartsass-sprockets"
 gem "bootstrap", "~> 5.3.3" # Bootstrapが必要なら
 
 # for user password
-gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+gem "bcrypt", "~> 3.1", ">= 3.1.12"
 
 # Run against this stable release
 group :development, :test do
