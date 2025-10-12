@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      redirect_to @task, notice: "タスク「#{task.name}」を更新しました。"
+      redirect_to @task, notice: "タスク「#{@task.name}」を更新しました。"
     else
       render :edit, status: :unprocessable_entity
     end
