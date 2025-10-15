@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
     if @user.save
       redirect_to admin_user_path(@user), notice: "ユーザー「#{@user.name}」を登録しました"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 

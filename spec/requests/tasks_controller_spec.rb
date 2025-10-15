@@ -35,7 +35,7 @@ RSpec.describe "Tasks", type: :request do
       expect {
         post "/tasks", params: {task: invalid_attributes}
       }.not_to change(Task, :count)
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe "Tasks", type: :request do
 
     it "does not update a task with invalid attributes" do
       patch "/tasks/#{task.id}", params: {task: invalid_params}
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:unprocessable_content)
       # Ensure data unchanged
       expect(task.reload.name).to eq("Old")
     end
