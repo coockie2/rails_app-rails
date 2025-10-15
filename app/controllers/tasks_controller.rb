@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to @task, notice: "タスク「#{@task.name}」を更新しました。"
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
