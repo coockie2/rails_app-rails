@@ -27,10 +27,9 @@ http://localhost:3000/rails/info/routes
 docker compose run --rm web bin/rails db:migrate
 ```
 
-* standardrbの実行
+* rubocopの実行
 ```bash
-docker compose run --rm web rake standard:fix
-docker compose run --rm web rake standard:fix_unsafely
+docker compose run --rm web rubocop -A
 ```
 
 * RSpecの実行
