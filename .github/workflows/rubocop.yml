@@ -1,6 +1,5 @@
 name: Check RuboCop
 on:
-  push:
   pull_request:
 
 jobs:
@@ -13,6 +12,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
+          ruby-version: '3.2.0' 
           bundler-cache: true
 
       - name: Run RuboCop
