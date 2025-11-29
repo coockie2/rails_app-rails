@@ -18,10 +18,17 @@ gem "bcrypt", "~> 3.1", ">= 3.1.12"
 # Run against this stable release
 group :development, :test do
   gem "rspec-rails", "~> 8.0.2"
-  gem "standard"
+  gem 'rubocop', require: false
+  gem "capybara"
+end
+
+group :development do
+  gem 'brakeman', require: false
 end
 
 group :test do
   gem "factory_bot_rails"
   gem "database_cleaner"
 end
+
+gem "sidekiq", "~> 8.0"
