@@ -37,7 +37,7 @@ jobs:
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }} # キャッシュのキーを指定します。
         restore-keys: |
           ${{ runner.os }}-gems-  # 部分一致する最新のキャッシュを探します。
-      
+
     - name: Install dependencies
       run: |
         sudo apt-get update -qq
