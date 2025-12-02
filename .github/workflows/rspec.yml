@@ -47,7 +47,7 @@ jobs:
           MYSQL_USER: root
           MYSQL_PASSWORD: password
         run: |
-          cp config/database.yml.ci config/database.yml
+          cp config/database.ci.yml config/database.yml
           bundle exec rails db:create db:schema:load
 
       - name: Run RSpec
