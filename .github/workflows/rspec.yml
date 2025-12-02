@@ -9,46 +9,47 @@ env:
   RAILS_ENV: test
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     services:
       mysql:
-        image: mysql:5.7.44
-        env:
-          MYSQL_ROOT_PASSWORD: password
+        image: mysql:5.7
         ports:
           - 3306:3306
-        options: --health-cmd "mysqladmin ping" --health-interval 10s --health-timeout 5s --health-retries 10
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test_db
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -ppassword"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=10
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.0' 
-
-      - name: Cache Ruby gems # Ruby gemsをキャッシュします。
-        uses: actions/cache@v4
-        with:
-          path: vendor/bundle # キャッシュするディレクトリを指定します。
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }} # キャッシュのキーを指定します。
-          restore-keys: |
-            ${{ runner.os }}-gems-  # 部分一致する最新のキャッシュを探します。
+          ruby-version: 3.4.2       # プロジェクトの Ruby バージョンに合わせて変更
+          cache-bundle: true
 
       - name: Install dependencies
         run: |
-          sudo apt-get update -qq
-          gem install bundler
-          bundle install
+          gem install bundler --no-document
+          bundle install --jobs 4 --retry 3
 
-      - name: Setup database
+      - name: Prepare database
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: root
+          MYSQL_PASSWORD: password
         run: |
-            cp config/database.ci.yml config/database.yml
-            bundle exec rails db:create RAILS_ENV=test
-            bundle exec rails db:migrate RAILS_ENV=test
+          cp config/database.ci.yml config/database.yml
+          bundle exec rails db:create db:schema:load
 
       - name: Run RSpec
-        run: bundle exec rspec
+        run: |
+          bundle exec rspec
