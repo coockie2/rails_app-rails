@@ -33,4 +33,4 @@ group :test do
   gem 'factory_bot_rails'
 end
 
-gem 'sidekiq', '~> 8.0'
+gem 'sidekiq', '~> 8.1'
